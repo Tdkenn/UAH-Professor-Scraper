@@ -1,0 +1,30 @@
+{
+    "name": "Rate My Professor UAH Extension",
+    "description": "Dynamically populates the Rate My Professor scores of UAH teachers.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "options_page": "options.html",
+    "background": 
+    {
+        "service_worker": "background.js"
+    },
+    "permissions": ["storage", "activeTab", "scripting"],
+    "action": 
+    {
+        "default_popup": "popup.html",
+        "default_icon": 
+        {
+            "16": "/images/UAHLogo16.png",
+            "32": "/images/UAHLogo32.png",
+            "48": "/images/UAHLogo48.png",
+            "128": "/images/UAHLogo128.png"
+        }
+    },
+    "icons": 
+    {
+        "16": "/images/UAHLogo16.png",
+        "32": "/images/UAHLogo32.png",
+        "48": "/images/UAHLogo48.png",
+        "128": "/images/UAHLogo128.png"
+    }
+}
