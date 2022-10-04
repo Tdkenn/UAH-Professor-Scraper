@@ -4,11 +4,12 @@
     "version": "1.0",
     "manifest_version": 3,
     "options_page": "options.html",
+    "author": "Tristan Kennedy and Steven Walter",
+    "permissions": ["storage", "activeTab", "scripting"],
     "background": 
     {
         "service_worker": "background.js"
     },
-    "permissions": ["storage", "activeTab", "scripting"],
     "action": 
     {
         "default_popup": "popup.html",
@@ -26,5 +27,14 @@
         "32": "/images/UAHLogo32.png",
         "48": "/images/UAHLogo48.png",
         "128": "/images/UAHLogo128.png"
-    }
+    },
+    "content_scripts":
+    [
+        {
+            "matches": ["*://www.uah.edu/cgi-bin/*"],
+            "all_frames": true,
+            "js": ["test.js"],
+            "run_at": "document_end"
+        }
+    ]
 }
