@@ -33,7 +33,7 @@
             "matches": ["https://www.uah.edu/cgi-bin/*"],
             "all_frames": true,
             "js": ["test.js"],
-            "run_at": "document_end"
+            "run_at": "document_idle"
         }
     ]
 }

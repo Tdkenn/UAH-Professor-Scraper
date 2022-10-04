@@ -1,4 +1,4 @@
-const text = document.querySelectorAll('pre')
+const text = document.getElementsByTagName('pre')
 
 let lName = 'Singh'
 let fName = 'Samriddhi'
