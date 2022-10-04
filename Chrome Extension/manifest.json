@@ -4,7 +4,6 @@
     "version": "1.0",
     "manifest_version": 3,
     "options_page": "options.html",
-    "author": "Tristan Kennedy and Steven Walter",
     "permissions": ["storage", "activeTab", "scripting"],
     "background": 
     {
