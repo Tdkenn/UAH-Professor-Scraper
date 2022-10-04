@@ -32,7 +32,7 @@
         {
             "matches": ["https://www.uah.edu/cgi-bin/*"],
             "all_frames": true,
-            "js": ["test.js"],
+            "js": ["hyperlinks.js"],
             "run_at": "document_idle"
         }
     ]

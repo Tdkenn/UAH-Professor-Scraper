@@ -23,19 +23,19 @@ function handleButtonClick(event) {
 function constructOptions(buttonColors) {
   chrome.storage.sync.get("color", (data) => {
     let currentColor = data.color;
-    // For each color we were provided…
+    // For each color we were provided
     for (let buttonColor of buttonColors) {
-      // …create a button with that color…
+      // create a button with that color
       let button = document.createElement("button");
       button.dataset.color = buttonColor;
       button.style.backgroundColor = buttonColor;
 
-      // …mark the currently selected color…
+      // mark the currently selected color
       if (buttonColor === currentColor) {
         button.classList.add(selectedClassName);
       }
 
-      // …and register a listener for when that button is clicked
+      // and register a listener for when that button is clicked
       button.addEventListener("click", handleButtonClick);
       page.appendChild(button);
     }
