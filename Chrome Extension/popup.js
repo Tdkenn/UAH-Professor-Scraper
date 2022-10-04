@@ -1,44 +1,39 @@
-// Create a "close" button and append it to each list item
-var blItems = document.getElementsByTagName("LI")
-for (const item of blItems) {
-  addClose(item)
+const listElements = document.getElementsByTagName('li')
+
+document.getElementById('addBtn').onclick = function () {
+  newElement()
 }
 
-// Click on a close button to hide the current list item
-var closeButt = document.getElementsByClassName("close")
-for (const item of closeButt) {
-  item.onclick = function () {
-    let div = this.parentElement
-    div.style.display = "none"
-  }
-}
-
-// Create a new list item when clicking on the "Add" button
+// Create a new list item when clicking on the 'Add' button
 function newElement() {
-  let li = document.createElement("li")
-  let inVal = document.getElementById("blInput").value
+  let li = document.createElement('li')
+  let inVal = document.getElementById('blInput').value
   let t = document.createTextNode(inVal)
   li.appendChild(t)
-  if (inVal === '')
-    alert("You must write something!")
-  else
-    document.getElementById("blacklist").appendChild(li)
-  document.getElementById("blInput").value = ""
 
-  addClose(li)
-
-  for (const item of closeButt) {
-    item.onclick = function () {
-      let div = this.parentElement;
-      div.style.display = "none";
+  let isDuplicate = false
+  for (const el of listElements) {
+    if (el.innerText.toLowerCase().includes(inVal.toLowerCase())) {
+      isDuplicate = true
+      break
     }
   }
+
+  if (inVal !== '' && !isDuplicate)
+    document.getElementById('blacklist').appendChild(li)
+
+  document.getElementById('blInput').value = ''
+
+  addClose(li)
 }
 
 function addClose(element) {
-  let span = document.createElement("SPAN");
-  let txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  element.appendChild(span);
+  let xButt = document.createElement('SPAN')
+  let txt = document.createTextNode('\u00D7')
+  xButt.className = 'close'
+  xButt.appendChild(txt)
+  xButt.onclick = function () {
+    element.remove()
+  }
+  element.appendChild(xButt)
 }
