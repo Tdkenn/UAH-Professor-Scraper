@@ -1,8 +1,12 @@
 const listElements = document.getElementsByTagName('li')
 
-document.getElementById('addBtn').onclick = function () {
-  newElement()
-}
+document.getElementById('addBtn').addEventListener('click', newElement)
+document.getElementById('blInput').addEventListener('keypress', function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault()
+    newElement()
+  }
+})
 
 // Create a new list item when clicking on the 'Add' button
 function newElement() {
@@ -32,7 +36,7 @@ function addClose(element) {
   let txt = document.createTextNode('\u00D7')
   xButt.className = 'close'
   xButt.appendChild(txt)
-  xButt.onclick = function () {
+  xButt.onclick = function() {
     element.remove()
   }
   element.appendChild(xButt)
