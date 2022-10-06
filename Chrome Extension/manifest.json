@@ -27,6 +27,13 @@
         "48": "/images/UAHLogo48.png",
         "128": "/images/UAHLogo128.png"
     },
+    "web_accessible_resources": 
+    [
+        {
+            "resources": ["plus-3701.png"],
+            "matches": ["*"]
+        }
+    ],
     "content_scripts":
     [
         {

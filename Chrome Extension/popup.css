@@ -23,7 +23,6 @@
   ul li {
     display: flex;
     flex-direction: column;
-
     cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
@@ -56,6 +55,10 @@
     background-color: #e61d1d;
     color: white;
   }
+
+  .confirmClose {
+
+  }
   
   /* Style the header */
   .header {
@@ -65,41 +68,34 @@
     color: white;
   }
   
-  /* Clear floats after the header */
-  /* .header:after {
-    content: "";
-    clear: both;
-  } */
-  
+  form {
+    display: grid;
+    grid-template-rows: 40px;
+    grid-template-columns: lfr auto;
+  }
   /* Style the input */
   input {
-    margin: 0;
-    border: none;
-    border-radius: 0;
-    width: 75%;
-    padding: 10px;
-    float: left;
-    font-size: 16px;
-    box-sizing: border-box;
+    grid-column: 1;
   }
   
   /* Style the "Add" button */
   .addBtn {
-    padding: 10px;
-    width: 25%;
     background: #d9d9d9;
     color: #555;
-    float: left;
     text-align: center;
-    font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
-    border-radius: 0;
-    margin: 0;
-    box-sizing: border-box;
     user-select: none;
+    grid-column: 2;
   }
   
+  select, input, .addBtn {
+    margin: 0;
+    border-width: 0px;
+    padding: 10px;
+    font-size: 16px;
+
+  }
   .addBtn:hover {
     background-color: #bbb;
   }
