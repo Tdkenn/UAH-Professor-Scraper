@@ -1,4 +1,8 @@
 const pre = document.getElementsByTagName('pre');
+var blacklistArray = []
+chrome.storage.sync.get('blacklistStorage', function(data){
+    blacklistArray = data.blacklistStorage
+})
 
 for (const block of pre)
 {
@@ -20,9 +24,4 @@ for (const block of pre)
         let linkProf = prof.split(' ').join('%20+') // replaces spaces with link version of a space
         block.firstChild.innerHTML = block.firstChild.innerHTML.replaceAll(prof, '<a href="https://www.ratemyprofessors.com/search/teachers?query='+linkProf+'&sid=U2Nob29sLTEwNjA=" target="_blank">'+prof+'</a>')
     }
-
-    // if(text[i].innerHTML.includes(lName+' '+fName)) 
-    // {
-    //     text[i].innerHTML = text[i].innerHTML.replaceAll(lName+' '+fName, '<a href="https://www.ratemyprofessors.com/search/teachers?query='+fName+'%20+'+lName+'&sid=U2Nob29sLTEwNjA=" target="_blank">'+lName+' '+fName+'</a>');
-    // }
 }
