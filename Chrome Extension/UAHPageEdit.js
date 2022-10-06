@@ -35,7 +35,6 @@ function blacklistAttacher(){
             for (const excl of blacklistArray){
                 if (line.includes(excl)){
                     block.firstChild.innerHTML = block.firstChild.innerHTML.replace(line.trim(),'<span style="background-color: #FFCCCB">'+line+'</span>')
-                    console.log(line)
                 }
             }
         }
