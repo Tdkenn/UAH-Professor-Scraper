@@ -1,5 +1,5 @@
 const listElements = document.getElementsByTagName('li')
-chrome.storage.sync.get('blacklistStorage', function(data){
+chrome.storage.sync.get({'blacklistStorage' : []}, function(data){
   blacklistArray = data.blacklistStorage
   repopulate()
 })

@@ -1,6 +1,7 @@
 const pre = document.getElementsByTagName('pre');
 var blacklistArray = []
 chrome.storage.sync.get('blacklistStorage', function(data){
+    console.log(1)
     blacklistArray = data.blacklistStorage
     blacklistAttacher ()
     hyperlinkAttacher()
@@ -30,6 +31,7 @@ function hyperlinkAttacher(){
 
 function blacklistAttacher(){
     for (const block of pre){
+        block.firstChild.innerText = block.firstChild.innerText.replaceAll('&', '+') //temp fix
         let lines = block.firstChild.innerText.split(/\r?\n|\r|\n/g)
         for (const line of lines){
             for (const excl of blacklistArray){
