@@ -79,6 +79,7 @@
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
+    height: 40px;
   }
 
   .tabs button:hover {
@@ -88,7 +89,10 @@
   .tabs button.active {
     background-color: #ccc;
   }
-  
+
+  .tabs button img {
+    height: 100%
+  }
   .tab {
     width: 50%;
   }
