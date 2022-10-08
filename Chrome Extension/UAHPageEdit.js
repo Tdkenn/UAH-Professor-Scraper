@@ -29,17 +29,16 @@ function hyperlinkAttacher(){
 
 function highlightAttacher(){
     for (const block of pre){
-        block.firstChild.innerText = block.firstChild.innerText.replaceAll('&', '+') //temp fix
         let lines = block.firstChild.innerText.split(/\r?\n|\r|\n/g)
         for (const line of lines){
             for (const excl of lists[0]){
                 if (line.includes(excl)){
-                    block.firstChild.innerHTML = block.firstChild.innerHTML.replace(line.trim(),'<span style="background-color: #FFCCCB">'+line+'</span>')
+                    block.firstChild.innerHTML = block.firstChild.innerHTML.replace(line.replaceAll('&', '&amp;'),'<span style="background-color: #FFCCCB">'+line.replaceAll('&', '&amp;')+'</span>')
                 }
             }
             for (const incl of lists[1]){
                 if (line.includes(incl)){
-                    block.firstChild.innerHTML = block.firstChild.innerHTML.replace(line.trim(),'<span style="background-color: #90EE90">'+line+'</span>')
+                    block.firstChild.innerHTML = block.firstChild.innerHTML.replace(line.replaceAll('&', '&amp;'),'<span style="background-color: #90EE90">'+line.replaceAll('&', '&amp;')+'</span>')
                 }
             }
         }
