@@ -65,10 +65,9 @@ function newElement(num) {
 
   // Check if item is a duplicate
   let isDuplicate = false
-  let ul = document.getElementById(listNames[num]).children
-  if (ul !== null) {
+  for (const ul of lists) {
     for (const el of ul) {
-      if (el.innerText.toLowerCase().includes(inVal.toLowerCase())) {
+      if (el.toLowerCase().includes(inVal.toLowerCase())) {
         isDuplicate = true
         break
       }
