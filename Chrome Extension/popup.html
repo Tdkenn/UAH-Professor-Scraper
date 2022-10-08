@@ -4,17 +4,20 @@
     <link rel="stylesheet" href="popup.css">
   </head>
   <body>
-      <div id="blHead" class="header">
-        <h2>Blacklist</h2>
-        <h2>Whitelist</h2>
+      <div id="head" class="header">
+        <div class="tabs">
+          <button class="tab active" id="blTab">Blacklist</button>
+          <button class="tab" id="wlTab">Whitelist</button>
+        </div>
         <form>
-          <input type="text" id="blInput" placeholder="Name">
+          <input type="text" id="input" placeholder="Name">
           <span class="addBtn" id="addBtn">
-            <img src="plus-3107.png">
+            <img src="images/plus.png">
           </span>  
         </form>
       </div>
       <ul id="blacklist"></ul>
+      <ul id="whitelist"></ul>
     <script src="popup.js"></script>
   </body>
 </html>

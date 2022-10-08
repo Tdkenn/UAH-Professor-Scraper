@@ -55,24 +55,51 @@
     background-color: #e61d1d;
     color: white;
   }
-
-  .confirmClose {
-
-  }
   
   /* Style the header */
   .header {
     background-color: #0077C8;
-    padding: 10px 40px 50px;
-    text-align: center;
+    padding: 30px 40px 30px;
     color: white;
+    display: grid;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;  
+    align-content: center;
+    background-color: #f1f1f1;
+    grid-row: 1;
+  }
+
+  .tabs button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+
+  .tabs button:hover {
+    background-color: #ddd;
+  }
+
+  .tabs button.active {
+    background-color: #ccc;
   }
   
+  .tab {
+    width: 50%;
+  }
+
   form {
+    grid-row: 2;
     display: grid;
     grid-template-rows: 40px;
     grid-template-columns: lfr auto;
   }
+
   /* Style the input */
   input {
     grid-column: 1;

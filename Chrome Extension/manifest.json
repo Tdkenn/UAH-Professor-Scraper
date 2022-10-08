@@ -30,8 +30,8 @@
     "web_accessible_resources": 
     [
         {
-            "resources": ["plus-3701.png"],
-            "matches": ["*"]
+            "resources": ["images/plus.png"],
+            "matches": ["<all_urls>"]
         }
     ],
     "content_scripts":
