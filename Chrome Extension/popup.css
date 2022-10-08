@@ -4,45 +4,42 @@
   }
 
   html {
-    width: 400px;
+    width: 300px;
   }
 
   body {
-    padding: 0;
+    padding: 5px;
+    background-color: #eee;
     margin: 0;
     width: 100%;
+    outline: 2px solid #282828;
   }
 
-  /* Remove margins and padding from the list */
   ul {
     margin: 0;
     padding: 0;
   }
   
-  /* Style the list items */
   ul li {
     display: flex;
     flex-direction: column;
     cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
-    background: #eee;
+    background: #fff;
     font-size: 12px;
     transition: 0.2s;
     user-select: none;
   }
   
-  /* Set all odd list items to a different color (zebra-stripes) */
   ul li:nth-child(odd) {
-    background: #f9f9f9;
+    background: #f5f5f5;
   }
   
-  /* Darker background-color on hover */
   ul li:hover {
     background: #ddd;
   }
   
-  /* Style the close button */
   .close {
     position: absolute;
     right: 0;
@@ -54,12 +51,11 @@
   .close:hover {
     background-color: #e61d1d;
     color: white;
+    transition: 0.2s;
   }
   
-  /* Style the header */
   .header {
-    background-color: #0077C8;
-    padding: 30px 40px 30px;
+    background-color: #ff0000;
     color: white;
     display: grid;
   }
@@ -68,8 +64,8 @@
     display: flex;
     justify-content: center;  
     align-content: center;
-    background-color: #f1f1f1;
     grid-row: 1;
+    background-color: #eee;
   }
 
   .tabs button {
@@ -86,47 +82,70 @@
     background-color: #ddd;
   }
 
-  .tabs button.active {
-    background-color: #ccc;
-  }
-
   .tabs button img {
     height: 100%
   }
+
   .tab {
     width: 50%;
   }
 
+  #blTab.active {
+    background-color: #FFCCCB;
+  }
+
+  #wlTab.active {
+    background-color: #90EE90;
+  }
+
+  /* Input field and add button */
   form {
     grid-row: 2;
     display: grid;
     grid-template-rows: 40px;
-    grid-template-columns: lfr auto;
+    user-select: none;
   }
 
-  /* Style the input */
+  input, .addBtn {
+    margin: 0;
+    padding: 10px;
+    font-size: 12px;
+  }
+
   input {
     grid-column: 1;
+    border-width: 1px solid #eee
+  }
+
+  input:focus {
+    border: 2px solid #282828;
+  }
+
+  input:active {
+    border: 2px solid #282828;
+  }
+
+  input:focus-visible {
+    border: 2px solid #282828;
+    outline: 0;
   }
   
-  /* Style the "Add" button */
   .addBtn {
-    background: #d9d9d9;
-    color: #555;
-    text-align: center;
+    background: #aaa;
+    border-width: 0px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
     cursor: pointer;
     transition: 0.3s;
     user-select: none;
     grid-column: 2;
   }
   
-  select, input, .addBtn {
-    margin: 0;
-    border-width: 0px;
-    padding: 10px;
-    font-size: 16px;
-
-  }
   .addBtn:hover {
     background-color: #bbb;
+  }
+  
+  .addBtn:active {
+    background-color: rgb(100, 100, 100);
   }

@@ -27,7 +27,8 @@ wlTab.addEventListener('click', function(event) {
 })
 
 // Add button functionality
-document.getElementById('addBtn').addEventListener('click', function (event) {
+var addBtn = document.getElementById('addBtn')
+addBtn.addEventListener('click', function (event) {
    let num = (blTab.className.includes('active')) ? 0 : 1
    newElement(num)
 })
@@ -36,8 +37,7 @@ document.getElementById('addBtn').addEventListener('click', function (event) {
 document.getElementById('input').addEventListener('keypress', function(event) {
   if (event.key === "Enter") {
     event.preventDefault()
-    let num = (blTab.className.includes('active')) ? 0 : 1
-    newElement(num)
+    addBtn.click()
   }
 })
 
