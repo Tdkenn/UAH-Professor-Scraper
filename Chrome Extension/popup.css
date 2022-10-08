@@ -15,7 +15,12 @@
     outline: 2px solid #282828;
   }
 
+  ul.hidden {
+    display: none;
+  }
+
   ul {
+    display: block;
     margin: 0;
     padding: 0;
   }
@@ -131,7 +136,7 @@
   }
   
   .addBtn {
-    background: #aaa;
+    background: #ccc;
     border-width: 0px;
     display: flex;
     align-items:center;
@@ -147,5 +152,5 @@
   }
   
   .addBtn:active {
-    background-color: rgb(100, 100, 100);
+    background-color: #999;
   }

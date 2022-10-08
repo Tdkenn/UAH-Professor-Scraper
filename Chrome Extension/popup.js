@@ -12,18 +12,26 @@ chrome.storage.sync.get({'listStor': [[], []]}, function(data) {
     repopulateFrom(1) // wl
 })
 
-// Top menu
+// Top menu & functionality
 var blTab = document.getElementById('blTab')
 var wlTab = document.getElementById('wlTab')
+var blacklist = document.getElementById('blacklist')
+var whitelist = document.getElementById('whitelist')
 
 blTab.addEventListener('click', function(event) {
-  wlTab.className = wlTab.className.replaceAll(' active', '')
-  blTab.className += ' active'
+  blTab.classList.add('active')
+  blacklist.classList.remove('hidden')
+
+  whitelist.classList.add('hidden')
+  wlTab.classList.remove('active')
 })
 
 wlTab.addEventListener('click', function(event) {
-  blTab.className = blTab.className.replaceAll( ' active', '')
-  wlTab.className += ' active'
+  wlTab.classList.add('active')
+  whitelist.classList.remove('hidden')
+  
+  blacklist.classList.add('hidden')
+  blTab.classList.remove('active')
 })
 
 // Add button functionality
