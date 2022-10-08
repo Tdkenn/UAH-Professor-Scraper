@@ -1,11 +1,9 @@
 const pre = document.getElementsByTagName('pre');
-var blacklistArray = []
-chrome.storage.sync.get('blacklistStorage', function(data){
-    console.log(1)
-    blacklistArray = data.blacklistStorage
-    blacklistAttacher ()
+chrome.storage.sync.get({'listStor': [[], []]}, function(data) {
+    lists = data.listStor
+    highlightAttacher()
     hyperlinkAttacher()
-})
+  })
 
 function hyperlinkAttacher(){
     for (const block of pre)
@@ -29,14 +27,19 @@ function hyperlinkAttacher(){
     }
 }
 
-function blacklistAttacher(){
+function highlightAttacher(){
     for (const block of pre){
         block.firstChild.innerText = block.firstChild.innerText.replaceAll('&', '+') //temp fix
         let lines = block.firstChild.innerText.split(/\r?\n|\r|\n/g)
         for (const line of lines){
-            for (const excl of blacklistArray){
+            for (const excl of lists[0]){
                 if (line.includes(excl)){
                     block.firstChild.innerHTML = block.firstChild.innerHTML.replace(line.trim(),'<span style="background-color: #FFCCCB">'+line+'</span>')
+                }
+            }
+            for (const incl of lists[1]){
+                if (line.includes(incl)){
+                    block.firstChild.innerHTML = block.firstChild.innerHTML.replace(line.trim(),'<span style="background-color: #90EE90">'+line+'</span>')
                 }
             }
         }
