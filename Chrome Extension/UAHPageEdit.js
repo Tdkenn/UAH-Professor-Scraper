@@ -27,18 +27,24 @@ function hyperlinkAttacher(){
     }
 }
 
-function highlightAttacher(){
-    for (const block of pre){
+function highlightAttacher() {
+    for (const block of pre) {
         let lines = block.firstChild.innerText.split(/\r?\n|\r|\n/g)
-        for (const line of lines){
-            for (const excl of lists[0]){
-                if (line.includes(excl)){
-                    block.firstChild.innerHTML = block.firstChild.innerHTML.replace(line.replaceAll('&', '&amp;'),'<span style="background-color: #FFCCCB">'+line.replaceAll('&', '&amp;')+'</span>')
+        for (const line of lines) {
+            for (const excMultiWord of lists[0]) {
+                let exclArray = excMultiWord.trim().split(/\s+/)
+                for(const excl of exclArray) {
+                    if (line.includes(excl)) {
+                        block.firstChild.innerHTML = block.firstChild.innerHTML.replace(line.replaceAll('&', '&amp;'),'<span style="background-color: #FFCCCB">'+line.replaceAll('&', '&amp;')+'</span>')
+                    }
                 }
             }
-            for (const incl of lists[1]){
-                if (line.includes(incl)){
-                    block.firstChild.innerHTML = block.firstChild.innerHTML.replace(line.replaceAll('&', '&amp;'),'<span style="background-color: #90EE90">'+line.replaceAll('&', '&amp;')+'</span>')
+            for (const inclMultiWord of lists[1]) {
+                let inclArray = inclMultiWord.trim().split(/\s+/)
+                for (const incl of inclArray) {
+                    if (line.includes(incl)) {
+                        block.firstChild.innerHTML = block.firstChild.innerHTML.replace(line.replaceAll('&', '&amp;'),'<span style="background-color: #90EE90">'+line.replaceAll('&', '&amp;')+'</span>')
+                    }
                 }
             }
         }
