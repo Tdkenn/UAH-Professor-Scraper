@@ -3,7 +3,7 @@ var listNames = ['blacklist', 'whitelist']
 
 // chrome.storage.sync.set({'listStor': [[],[]]})
 
-// Repopulate from stored data
+// Repopulate from stored data, called upon popup load
 chrome.storage.sync.get({'listStor': [[], []]}, function(data) {
   lists = data.listStor
   if (lists[0].length > 0)
@@ -18,6 +18,7 @@ var wlTab = document.getElementById('wlTab')
 var blacklist = document.getElementById('blacklist')
 var whitelist = document.getElementById('whitelist')
 
+// What happens when the blacklist tab is selected to be active
 blTab.addEventListener('click', function(event) {
   blTab.classList.add('active')
   blacklist.classList.remove('hidden')
@@ -26,6 +27,8 @@ blTab.addEventListener('click', function(event) {
   wlTab.classList.remove('active')
 })
 
+
+// What happens when the whitelist tab is selected to be active
 wlTab.addEventListener('click', function(event) {
   wlTab.classList.add('active')
   whitelist.classList.remove('hidden')
@@ -49,11 +52,13 @@ document.getElementById('input').addEventListener('keypress', function(event) {
   }
 })
 
+// Function which repopulates the popup with data when it opens
 function repopulateFrom(num) {
   for (const name of lists[num])
     repopElement(name, num)
 }
 
+// Function which repopulates a single element in the popup. Only called by repopulateFrom for easier to read code
 function repopElement(name, num) {
   let li = document.createElement('li')
   let t = document.createTextNode(name)
@@ -62,7 +67,7 @@ function repopElement(name, num) {
   document.getElementById(listNames[num]).appendChild(li)
 }
 
-// Create a new list item
+// Function which creates a new list item
 function newElement(num) {
 
   // Create list item
@@ -94,13 +99,13 @@ function newElement(num) {
   addClose(li, num)
 }
 
+// Function which adds a close button to each list element
 function addClose(element, num) {
   let xButt = document.createElement('SPAN')
   let txt = document.createTextNode('\u00D7')
   xButt.className = 'close'
   xButt.appendChild(txt)
   xButt.onclick = function() {
-    // blacklistArray.splice(blacklistArray.indexOf(element.innerText.slice(0, -1).trim()), 1)
     lists[num].splice(lists[num].indexOf(element.nodeValue), 1)
     chrome.storage.sync.set({'listStor': lists})
     element.remove()
