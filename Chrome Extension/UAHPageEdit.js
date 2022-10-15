@@ -21,7 +21,7 @@ function hyperlinkAttacher(){ //Function which replaces the professor names on t
         }
 
         for (const prof of profs){ 
-            let linkProf = prof.split(' ').join('%20+') //Creating RMP link
+            let linkProf = prof.split(' ').join('%20+') //Creating Rate My Professor link
             block.firstChild.innerHTML = block.firstChild.innerHTML.replaceAll(prof, '<a href="https://www.ratemyprofessors.com/search/teachers?query='+linkProf+'&sid=U2Nob29sLTEwNjA=" target="_blank">'+prof+'</a>')
         }
     }
