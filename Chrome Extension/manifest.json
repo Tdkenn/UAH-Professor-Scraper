@@ -3,7 +3,6 @@
     "description": "Dynamically populates the Rate My Professor scores of UAH teachers.",
     "version": "1.1",
     "manifest_version": 3,
-    "options_page": "options.html",
     "permissions": ["storage", "activeTab", "scripting"],
     "action": 
     {
